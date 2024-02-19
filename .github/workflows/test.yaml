@@ -16,7 +16,7 @@ jobs:
       - name: Install Dep
         run: pnpm install
       - name: Test
-        run: pnpm Test
+        run: pnpm test
   BuildTest:
     runs-on: ubuntu-latest
     steps:
