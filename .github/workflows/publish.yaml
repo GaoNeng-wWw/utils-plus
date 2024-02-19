@@ -2,8 +2,6 @@ name: Publish Package to npm
 
 on:
   push:
-    branches:
-      - "main"
     tags:
       - "v.*.*.*-.*" # eg v.1.0.0-rc.1
 
