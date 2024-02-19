@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - "v*.*.*-.*" # eg v.1.0.0-rc.1
+      - “v*.*.*
 
 jobs:
   publish:
