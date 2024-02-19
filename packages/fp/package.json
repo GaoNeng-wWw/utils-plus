@@ -1,6 +1,6 @@
 {
   "name": "@utils-plus/fp",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -15,9 +15,10 @@
       ".": ["./dist/index.d.ts"]
     }
   },
+  "files": ["dist"],
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@utils-plus/type": "workspace:^"
   },
