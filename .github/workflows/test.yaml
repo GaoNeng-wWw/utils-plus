@@ -38,4 +38,4 @@ jobs:
       - name: Install Dep
         run: pnpm install
       - name: Test
-        run: pnpm publish -r --dry-run
+        run: pnpm publish -r --dry-run --no-git-checks
