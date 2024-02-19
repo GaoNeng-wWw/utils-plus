@@ -1,0 +1,27 @@
+{
+  "name": "@utils-plus/fp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "node": "./dist/index.cjs",
+    "import": "./dist/index.mjs",
+    "default": "./dist/index.js"
+  },
+  "typesVersions": {
+    "*": {
+      ".": ["./dist/index.d.ts"]
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@utils-plus/type": "workspace:^"
+  },
+  "scripts": {
+    "build": "rollup -c rollup.config.js"
+  }
+}
