@@ -1,2 +1,3 @@
 import curry from './curry';
-export {curry};
+import pipe from './pipe';
+export {curry, pipe};

@@ -8,7 +8,8 @@ function curry<A extends unknown[], R>(fn: (...args:A) => R): Curry<A, R, []>{
     return curry((fn as any).bind(null, ...args));
   };
     
-  return curried as Curry<A, R, []>;
+  return curried as unknown as Curry<A, R, []>;
 }
+
 
 export default curry;
