@@ -11,4 +11,5 @@ function curry<A extends unknown[], R>(fn: (...args:A) => R): Curry<A, R, []>{
   return curried as Curry<A, R, []>;
 }
 
+
 export default curry;
