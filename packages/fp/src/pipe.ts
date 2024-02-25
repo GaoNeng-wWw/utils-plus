@@ -1,8 +1,8 @@
 const Pipe = <
-  T extends (...args: any) => any,
-  P=Parameters<T>[number],
->(fns: T[]) => {
-  return (...args: P[]):P =>{
+  T extends readonly ((...args: any) => any)[],
+  P=Parameters<T[0]>[number],
+>(fns: T) => {
+  return (...args: Parameters<T[0]>):P =>{
     if (!fns.length){
       return args[0];
     }
