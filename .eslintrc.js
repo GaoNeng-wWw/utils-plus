@@ -33,7 +33,7 @@ module.exports = {
     'quotes': ['error', 'single'],
     'semi': ['error', 'always'],
     'eqeqeq': ['error'],
-    'capitalized-comments': ['error', 'always'],
+    // 'capitalized-comments': ['error', 'always'],
     'curly': ['error'],
     'dot-notation': ['error'],
     'no-div-regex': ['error'],
