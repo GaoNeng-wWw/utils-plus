@@ -1,9 +1,12 @@
-import { expect, it } from 'vitest';
-import { Container, IO, Maybe, Right, Wrong } from '../src/functor';
+import { expect, expectTypeOf, it } from 'vitest';
+import { Container, IO, Maybe, Monad, Right, Wrong } from '../src/functor';
 
 it('IO', ()=>{
   expect(IO.of(1).map((x:number) => x+1).value).toBe(2);
   expect(IO.of(1).map((x:number) => x+1).map((x:number) => x+1).map((x:number) => x+1).value).toBe(4);
+  expectTypeOf(IO.of(IO.of(1)).value).toEqualTypeOf<IO<()=>number, number>>();
+  expectTypeOf(IO.of(IO.of(1)).value.value).toEqualTypeOf<number>();
+  expect(IO.of(IO.of(1)).value.value).toBe(1);
 });
 
 it('Container', ()=>{
@@ -16,7 +19,7 @@ it('Maybe', ()=>{
 });
 
 it('Either', ()=>{
-  const parseJSON = (msg) => {
+  const parseJSON = (msg: string) => {
     try {
       return Right.of(JSON.parse(msg));
     } catch (err) {
@@ -25,5 +28,11 @@ it('Either', ()=>{
     }
   };
   expect(parseJSON('{a:hello-world}')).toBeInstanceOf(Wrong);
-  expect(parseJSON('{"a":"hello-world"}')).toBeInstanceOf(Right);
+  expect(parseJSON('{a:hello-world}').map(()=>{})).toBeInstanceOf(Wrong);
+  expect(parseJSON('{"a":"hello-world"}').map((obj)=>{return obj.a;}).val).toBeTypeOf('string');
+});
+
+it('Monda', ()=>{
+  expect(Monad.of(1).map((x:number) => Monad.of(x+1)).value).toBeInstanceOf(Monad);
+  expect(Monad.of(1).flatMap((x:number) => Monad.of(x+1)).value).toBe(2);
 });

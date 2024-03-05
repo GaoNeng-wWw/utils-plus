@@ -23,7 +23,7 @@ export class Maybe<T>{
     return new Maybe(val);
   }
   map<F extends Func>(f: F){
-    return this.val ? Maybe.of(f(this.val)) : Maybe.of(null);
+    return this.val ? Maybe.of<ReturnType<F>>(f(this.val)) : Maybe.of<null>(null);
   }
 }
 
@@ -33,7 +33,7 @@ export class Wrong<T> {
     this.val = val;
   }
   static of<T>(val: T){
-    return new Wrong(val);
+    return new Wrong<T>(val);
   }
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   map<F extends Func>(fn: F){
@@ -50,13 +50,13 @@ export class Right<T> {
     return new Right(val);
   }
   map<F extends Func>(fn: F){
-    return Right.of(fn(this.val));
+    return Right.of<ReturnType<F>>(fn(this.val));
   }
 }
 
 export class IO<
-  R,
-  F extends () => R
+  F extends () => R,
+  R = ReturnType<F>
 > {
   private val: F;
   constructor(val: F){
@@ -72,5 +72,27 @@ export class IO<
 
   get value(){
     return this.val();
+  }
+}
+
+export class Monad<T>{
+  private val: T;
+  constructor(val: T){
+    this.val = val;
+  }
+  static of<T>(value: T){
+    return new Monad(value);
+  }
+  map<F extends Func>(fn: F){
+    return Monad.of<ReturnType<F>>(fn(this.val));
+  }
+  flatMap<F extends Func>(fn:F){
+    return this.map(fn).join();
+  }
+  join(){
+    return this.val;
+  }
+  get value(){
+    return this.val;
   }
 }
