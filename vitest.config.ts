@@ -6,5 +6,8 @@ export default defineConfig({
     __DEV__: true
   },
   test: {
+    coverage: {
+      provider: 'istanbul'
+    },
   },
 });
