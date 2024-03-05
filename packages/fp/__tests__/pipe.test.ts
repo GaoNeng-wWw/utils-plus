@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import pipe from '../src/pipe';
+import {pipe} from '../pipe';
 
 describe('pipe', ()=>{
   it('single param', ()=>{

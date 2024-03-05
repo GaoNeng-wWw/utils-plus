@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { compose } from '../src';
+import { compose } from '../compose';
 
 describe('compose', ()=>{
   it('single param', ()=>{

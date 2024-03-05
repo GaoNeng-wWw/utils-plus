@@ -29,11 +29,11 @@ const config:RollupOptions[] = [
 ];
 
 for (const m of moduleNames){
-  if (m === 'type' || statSync(`packages/${m}`).isFile()){
+  if (m === 'type' || statSync(`packages/${m}`).isFile() || m === '.vitepress' || m === 'guide' || m.startsWith('_')){
     continue;
   }
   config.push({
-    input: `packages/${m}/src/index.ts`,
+    input: `packages/${m}/index.ts`,
     output: [
       {
         file: `packages/${m}/dist/index.mjs`,
@@ -69,7 +69,7 @@ for (const m of moduleNames){
     ]
   });
   config.push({
-    input: `packages/${m}/src/index.ts`,
+    input: `packages/${m}/index.ts`,
     output: [
       {
         file: `packages/${m}/dist/index.d.mts`,

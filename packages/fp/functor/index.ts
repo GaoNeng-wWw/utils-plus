@@ -1,5 +1,5 @@
 import { Func } from '@utils-plus/type';
-import pipe from './pipe';
+import {pipe} from '../pipe';
 
 export class Container<T> {
   public val: T;
