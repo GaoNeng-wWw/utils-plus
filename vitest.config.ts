@@ -7,7 +7,8 @@ export default defineConfig({
   },
   test: {
     coverage: {
-      provider: 'istanbul'
+      provider: 'istanbul',
+      exclude: ['node_modules/**/*', 'dist', '*.config.js', '.eslint*.*']
     },
   },
 });
