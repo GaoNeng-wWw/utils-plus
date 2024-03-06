@@ -11,7 +11,7 @@ describe('compose', ()=>{
         return x * -1;
       }),
     ];
-    const f = compose(fns);
+    const f = compose(...fns);
     expect(f(1)).toBe(0);
   });
   it('mutil param', ()=>{
@@ -23,7 +23,7 @@ describe('compose', ()=>{
         return (x*y)*-1;
       }),
     ];
-    const f = compose(fns);
+    const f = compose(...fns);
     expect(f(1, 2)).toBe(-1);
   });
   it('rest', ()=>{
@@ -35,7 +35,7 @@ describe('compose', ()=>{
         return args.reduce((pre, cur) => pre+cur) * -1;
       }),
     ];
-    const f = compose(fns);
+    const f = compose(...fns);
     expect(f(1, 2)).toBe(-2);
   });
 });
