@@ -2,7 +2,10 @@ import { Func } from '@utils-plus/type';
 import {pipe} from '../pipe';
 
 export class Container<T> {
-  public val: T;
+  private val: T;
+  get value(){
+    return this.val;
+  }
   constructor(val: T){
     this.val = val;
   }
@@ -14,21 +17,27 @@ export class Container<T> {
   }
 }
 
-export class Maybe<T>{
-  public val: T;
+export class Maybe<T extends null | unknown>{
+  private val: T;
+  get value(){
+    return this.val;
+  }
   constructor(val:T){
     this.val = val;
   }
   static of<T>(val: T){
     return new Maybe(val);
   }
-  map<F extends Func>(f: F){
-    return this.val ? Maybe.of<ReturnType<F>>(f(this.val)) : Maybe.of<null>(null);
+  map<F extends Func>(f: F):T extends null ? Maybe<null> : Maybe<ReturnType<F>> {
+    return this.val ? Maybe.of<ReturnType<F>>(f(this.val)) : Maybe.of<null>(null) as T extends null ? Maybe<null> : Maybe<ReturnType<F>>;
   }
 }
 
 export class Wrong<T> {
-  public val: T;
+  private val: T;
+  get value(){
+    return this.val;
+  }
   constructor(val: T){
     this.val = val;
   }
@@ -42,7 +51,10 @@ export class Wrong<T> {
 }
 
 export class Right<T> {
-  public val: T;
+  private val: T;
+  get value(){
+    return this.val;
+  }
   constructor(val: T){
     this.val = val;
   }

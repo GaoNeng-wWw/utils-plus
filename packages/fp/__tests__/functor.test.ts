@@ -10,12 +10,12 @@ it('IO', ()=>{
 });
 
 it('Container', ()=>{
-  expect(Container.of(1).map((x:number)=>x+1).map((x)=>x+1).val).toBe(3);
+  expect(Container.of(1).map((x:number)=>x+1).map((x)=>x+1).value).toBe(3);
 });
 
 it('Maybe', ()=>{
-  expect(Maybe.of(1).map(()=>null).map((x: number)=>x+1).val).toBe(null);
-  expect(Maybe.of(1).map((x:number)=>x+1).map((x: number)=>x+1).val).toBe(3);
+  expect(Maybe.of(1).map(()=>null).map((x: number)=>x+1).value).toBe(null);
+  expect(Maybe.of(1).map((x:number)=>x+1).map((x: number)=>x+1).value).toBe(3);
 });
 
 it('Either', ()=>{
@@ -29,7 +29,7 @@ it('Either', ()=>{
   };
   expect(parseJSON('{a:hello-world}')).toBeInstanceOf(Wrong);
   expect(parseJSON('{a:hello-world}').map(()=>{})).toBeInstanceOf(Wrong);
-  expect(parseJSON('{"a":"hello-world"}').map((obj)=>{return obj.a;}).val).toBeTypeOf('string');
+  expect(parseJSON('{"a":"hello-world"}').map((obj)=>{return obj.a;}).value).toBeTypeOf('string');
 });
 
 it('Monda', ()=>{
