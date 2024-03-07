@@ -1,5 +1,3 @@
-import { link, readdir, readdirSync, statSync } from 'fs'
-import { join } from 'path'
 import { defineConfig, DefaultTheme } from 'vitepress'
 import {getMeta} from '../_utils/create-meta';
 

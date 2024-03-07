@@ -8,11 +8,11 @@ hero:
   tagline: "💪 Strong Types"
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: Quick Start
+      link: /guide
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Github
+      link: https://github.com/GaoNeng-wWw/utils-plus
 
 features:
   - icon: "💪"
