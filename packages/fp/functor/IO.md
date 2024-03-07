@@ -22,12 +22,6 @@ class IO<
 
 ```typescript
 import {IO} from '@utils-plus/core';
-const data = ['item-1', 'item-2'];
-const getDataById = (id: number) => data[id];
-const uppercase = (x:string) => x.toUpperCase();
-const io = IO.of(getDataById(0)).map(uppercase);
-expect(io.value).toBe('ITEM-1');
-data[0]='item-2';
-expect(io.value).toBe('ITEM-1');
+IO.of(1).map((x:number) => x+1).value
 ```
 

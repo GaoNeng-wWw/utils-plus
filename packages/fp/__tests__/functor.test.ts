@@ -1,6 +1,7 @@
 import { expect, expectTypeOf, it } from 'vitest';
 import { Container, IO, Maybe, Monad, Right, Wrong } from '../functor';
 
+
 it('IO', ()=>{
   expect(IO.of(1).map((x:number) => x+1).value).toBe(2);
   expect(IO.of(1).map((x:number) => x+1).map((x:number) => x+1).map((x:number) => x+1).value).toBe(4);
