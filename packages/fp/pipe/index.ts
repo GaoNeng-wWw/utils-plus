@@ -15,4 +15,4 @@ const pipe = <T extends Fn[]>(...fn: T)=>{
   };
 };
 
-export default pipe;
+export {pipe};

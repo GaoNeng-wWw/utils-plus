@@ -12,4 +12,4 @@ function curry<A extends unknown[], R>(fn: (...args:A) => R): Curry<A, R, []>{
 }
 
 
-export default curry;
+export {curry};
