@@ -4,8 +4,8 @@ layout: home
 
 hero:
   name: "Utils plus"
-  text: "A type rich utils lib"
-  tagline: My great project tagline
+  text: "Tool library written in typescript"
+  tagline: "💪 Strong Types"
   actions:
     - theme: brand
       text: Markdown Examples
@@ -15,11 +15,14 @@ hero:
       link: /api-examples
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - icon: "💪"
+    title: Type Strong
+    details: Written in TypeScript
+  - icon: "⚡"
+    title: Full treeshake
+    details: Take what you need
+  - icon: "☁️"
+    title: Platform independent
+    details: The base library is type independent, as long as it follows the ECMAS specification at runtime
 ---
 

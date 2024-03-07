@@ -116,6 +116,13 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/GaoNeng-wWw/utils-plus' }
-    ]
+    ],
+    footer:{
+      copyright: 'Copyright © 2024-present GaoNeng-wWw',
+      message: 'Released under the MIT License.'
+    },
+    search: {
+      provider: 'local',
+    }
   }
 })
