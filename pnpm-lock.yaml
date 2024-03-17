@@ -96,6 +96,12 @@ importers:
         specifier: workspace:^
         version: link:../type
 
+  packages/object:
+    dependencies:
+      '@utils-plus/type':
+        specifier: workspace:^
+        version: link:../type
+
   packages/type: {}
 
 packages:
