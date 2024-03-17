@@ -1,0 +1,28 @@
+{
+  "name": "@utils-plus/object",
+  "version": "0.0.1-rc.6",
+  "description": "",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "node": "./dist/index.cjs",
+    "import": "./dist/index.mjs",
+    "default": "./dist/index.js"
+  },
+  "typesVersions": {
+    "*": {
+      ".": ["./dist/index.d.ts"]
+    }
+  },
+  "files": ["dist"],
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@utils-plus/type": "workspace:^"
+  },
+  "scripts": {
+    "build": "rollup -c rollup.config.js"
+  }
+}
